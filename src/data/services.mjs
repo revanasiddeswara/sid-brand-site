@@ -1,0 +1,100 @@
+// Services overview data. Each service names the venture that delivers it.
+// No prices are published: CTAs are "Request a Quote", "Discuss Your Requirements" or "Enquire Now".
+
+export const serviceGroups = [
+  {
+    id: "digital",
+    title: "Digital services",
+    venture: "pixelvows",
+    ventureName: "Sid’s PixelVows",
+    icon: "code",
+    intro: "Websites planned around what your business actually needs.",
+    items: [
+      { title: "Business websites", desc: "Clear, responsive websites that explain what you do and make it easy to enquire." },
+      { title: "Landing pages", desc: "Focused single-purpose pages for a product, service or campaign." },
+      { title: "WordPress development", desc: "WordPress sites you can update yourself, set up with a clean structure." },
+      { title: "React development", desc: "Custom frontend builds for sites and interfaces that need more than a template." },
+      { title: "Website redesign", desc: "Refresh an outdated site with better structure, layout and mobile experience." },
+      { title: "E-commerce websites", desc: "Online catalogues and shops, with the ordering approach agreed up front." },
+      { title: "Website maintenance", desc: "Ongoing fixes, updates and improvements as agreed with you." },
+    ],
+    cta: "Discuss Your Requirements",
+    href: "/contact?category=web#enquiry",
+    pageHref: "/ventures/pixelvows",
+  },
+  {
+    id: "water",
+    title: "Water and equipment solutions",
+    venture: "shree-matha-enterprises",
+    ventureName: "Shree Matha Enterprises",
+    icon: "droplet",
+    intro: "Water purification and utility equipment, quoted to your site and need.",
+    items: [
+      { title: "Domestic water purifiers", desc: "RO purifiers for homes. Share your water source and we help you choose." },
+      { title: "Commercial RO plants", desc: "Plants from 25 LPH to 5,000 LPH for shops, institutions and industries." },
+      { title: "Water treatment enquiries", desc: "Industrial and commercial treatment solutions, discussed case by case." },
+      { title: "Water softeners", desc: "For hard water problems in homes and commercial setups." },
+      { title: "Solar and lighting products", desc: "Solar street lights, high-mast lighting, solar panels and solar water heaters." },
+      { title: "CCTV and related equipment", desc: "CCTV cameras and related solutions. Enquire with your requirement." },
+    ],
+    cta: "Request a Quote",
+    href: "/contact?category=water#enquiry",
+    pageHref: "/ventures/shree-matha-enterprises",
+  },
+  {
+    id: "education",
+    title: "Business education",
+    venture: "kannada-business-adda",
+    ventureName: "Kannada Business Adda",
+    icon: "book",
+    intro: "Practical business learning in Kannada, for people starting small.",
+    items: [
+      { title: "Business idea guidance", desc: "Ideas matched to your budget, skills, interests and location." },
+      { title: "Beginner business planning", desc: "Plain-language planning for first-time entrepreneurs." },
+      { title: "Small-investment business research", desc: "Looking at options for people starting with limited money." },
+      { title: "Sales and marketing education", desc: "Customer acquisition, pricing and retention basics." },
+    ],
+    cta: "Enquire About a Business Plan",
+    href: "/contact?category=business#enquiry",
+    pageHref: "/ventures/kannada-business-adda",
+  },
+  {
+    id: "creative",
+    title: "Creative products",
+    venture: "rj-creativity",
+    ventureName: "RJ Creativity",
+    icon: "flower",
+    intro: "Handmade gifting for birthdays, events and celebrations.",
+    items: [
+      { title: "Artificial flower bouquets", desc: "Long-lasting bouquets, including pink rose bouquets." },
+      { title: "Handmade gifting products", desc: "Handmade and gift-wrapped decorative gifting products." },
+      { title: "Custom gift enquiries", desc: "Tell us the occasion and what you have in mind." },
+    ],
+    cta: "Enquire Now",
+    href: "/contact?category=rj#enquiry",
+    pageHref: "/ventures/rj-creativity",
+  },
+  {
+    id: "insurance",
+    title: "Insurance",
+    venture: "insurance-advisory",
+    ventureName: "Insurance Advisory",
+    icon: "shield",
+    intro: "Information and enquiry support for life insurance, as a Bajaj Life Insurance advisor.",
+    items: [
+      { title: "Life insurance product enquiries", desc: "Understand relevant products before you decide." },
+      { title: "Consultation requests", desc: "Ask for a conversation about your needs." },
+    ],
+    cta: "Request an Insurance Consultation",
+    href: "/contact?category=insurance#enquiry",
+    pageHref: "/ventures/insurance-advisory",
+  },
+];
+
+// Short list for the home page preview.
+export const servicePreview = [
+  { title: "Business websites and landing pages", venture: "Sid’s PixelVows", icon: "layout", href: "/ventures/pixelvows", desc: "Responsive, well-structured sites for small businesses and professionals." },
+  { title: "WordPress and React development", venture: "Sid’s PixelVows", icon: "code", href: "/ventures/pixelvows", desc: "Editable WordPress sites or custom React frontends, depending on the need." },
+  { title: "Commercial and domestic RO solutions", venture: "Shree Matha Enterprises", icon: "droplet", href: "/ventures/shree-matha-enterprises", desc: "RO plants from 25 to 5,000 LPH and domestic purifiers, quoted on request." },
+  { title: "Business idea guidance in Kannada", venture: "Kannada Business Adda", icon: "book", href: "/ventures/kannada-business-adda", desc: "Starter ideas and plans for people with small budgets." },
+];

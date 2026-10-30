@@ -1,0 +1,14 @@
+{
+  "name": "sid-brand-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static multi-page personal brand and ventures website. Zero runtime dependencies.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node serve.mjs",
+    "check": "node check.mjs",
+    "start": "node build.mjs && node serve.mjs"
+  }
+}
