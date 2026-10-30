@@ -206,16 +206,16 @@ function initForm(form) {
     if (e.target.name === "contactMethod") { const p = $('[data-field="phone"]', form); if (p && p.classList.contains("invalid")) validateField(p); }
   });
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (submit.disabled) return;
     clearStatus();
 
-    // Spam protection: honeypot + minimum fill time (server-side checks are still recommended).
+    // Client-side spam friction; this is not a substitute for server-side protection.
     if (form.elements.company_website.value) return;
     const min = (cfg.minFillSeconds || 0) * 1000;
     if (Date.now() - openedAt < min) {
-      say("info", "<p>That was quick! Please review your details and press send again.</p>");
+      say("info", "<p>Please review your details and press submit again.</p>");
       return;
     }
 
@@ -228,28 +228,17 @@ function initForm(form) {
     }
 
     const data = collect();
-    submit.disabled = true;
-    submit.classList.add("is-loading");
-    submit.setAttribute("aria-busy", "true");
-    label.textContent = cfg.endpoint ? "Sending…" : "Checking…";
-    const result = await submitEnquiry(data, cfg);
-    submit.disabled = false;
-    submit.classList.remove("is-loading");
-    submit.removeAttribute("aria-busy");
-    label.textContent = submit.dataset.label;
-
-    if (result.status === "sent") {
-      say("success", "<p><strong>Thank you. Your enquiry has been sent.</strong></p><p>You’ll hear back using your preferred contact method.</p>");
-      const keep = catField.value;
-      form.reset();
-      form.elements._opened.value = String(Date.now());
-      setCategory(form.dataset.fixed === "1" ? form.dataset.initial : keep, { quiet: true });
-      $$(".field", form).forEach((f) => { setError(f, ""); delete f.dataset.touched; });
-    } else if (result.status === "not-configured") {
-      say("info", `<p><strong>Your message has not been sent.</strong></p><p>This enquiry form isn’t connected to an email or messaging service yet, so nothing was delivered. Your details are still in the form. ${alternatives(data)}</p>`);
-    } else {
-      say("error", `<p><strong>Sorry, we couldn’t send your enquiry.</strong></p><p>Please try again in a moment. Your details are still in the form. ${alternatives(data)}</p>`);
+    const digits = String(cfg.whatsapp || "").replace(/\D/g, "");
+    if (!digits || digits.length < 8) {
+      say("error", `<p><strong>WhatsApp contact is not configured yet.</strong></p><p>Your details have not been sent. Please contact us using the details shown on this website.</p>`);
+      return;
     }
+
+    const message = `Hello, I have an enquiry through the website.\n\n${waText(data)}\n\nPlease contact me about this enquiry.`;
+    const href = `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
+
+    // Redirect this tab directly to WhatsApp; the customer presses Send there.
+    window.location.href = href;
   });
 
   submit.dataset.label = label.textContent;

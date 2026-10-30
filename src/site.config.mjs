@@ -24,9 +24,9 @@ export const site = {
 
   // ---- Personal contact details (TODO: fill in) ----------------------------
   contact: {
-    email: "", // TODO e.g. "name@example.com"
-    phone: "", // TODO e.g. "+91 9XXXXXXXXX" (shown on the Contact page)
-    whatsapp: "", // TODO digits only with country code, e.g. "919XXXXXXXXX"
+    email: "businessadda51@gmail.com", // TODO e.g. "name@example.com"
+    phone: "+91 8951682834", // TODO e.g. "+91 9XXXXXXXXX" (shown on the Contact page)
+    whatsapp: "918951682834", // TODO digits only with country code, e.g. "919XXXXXXXXX"
   },
 
   // ---- Personal / professional profiles (TODO: fill in) --------------------
